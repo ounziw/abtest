@@ -69,15 +69,6 @@ return array(
                 'title' => __('画像A'),
             ),
         ),
-        /*
-        'medias->imga->medil_media_id' => array(
-            'label' => '',
-            'renderer' => 'Nos\Media\Renderer_Media',
-            'form' => array(
-                'title' => __('画像A'),
-            ),
-        ),
-        */
         'abte_texta' => array(
             'label' => __('テキストA'),
             'form' => array(
