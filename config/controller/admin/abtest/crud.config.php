@@ -56,6 +56,20 @@ return array(
             ),
             'dont_save' => true,
         ),
+        'abte_inta' => array (
+            'label' => 'inta: ',
+            'form' => array(
+                'type' => 'hidden',
+            ),
+            'dont_save' => true,
+        ),
+        'abte_intb' => array (
+            'label' => 'intb: ',
+            'form' => array(
+                'type' => 'hidden',
+            ),
+            'dont_save' => true,
+        ),
         'abte_title' => array(
             'label' => __('title'),
             'form' => array(

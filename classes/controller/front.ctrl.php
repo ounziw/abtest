@@ -24,6 +24,8 @@ class Controller_Front extends Controller_Front_Application
         $abte_id = $enhancer_args['abte_id'];
         $item = \ABTEST\Model_Abtest::find($abte_id);
         \Session::set('abtest'.$abte_id, 'a');
+        $item->abte_inta++;
+        $item->save();
         $img = 'imga';
         $text = 'texta';
         $textdata = $item->{$text};

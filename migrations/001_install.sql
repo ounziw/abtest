@@ -3,6 +3,8 @@ CREATE TABLE IF NOT EXISTS `abtests` (
     `abte_title` varchar(255) NOT NULL,
     `abte_texta` varchar(255) NOT NULL,
     `abte_textb` varchar(255) NOT NULL,
+    `abte_inta` int(11),
+    `abte_intb` int(11),
     `abte_created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
     `abte_updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`abte_id`),
