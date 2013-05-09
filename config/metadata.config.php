@@ -42,8 +42,9 @@ return array(
         'ab_test' => array( // key must be defined
             'title' => 'AB TEST Abtest',
             'desc'  => '',
+            'enhancer' => 'ab_test/front/main',
             //'urlEnhancer' => 'ab_test/front/main', // URL of the enhancer
-            'previewUrl' => 'admin/preview', // URL of preview
+            'previewUrl' => 'admin/ab_test/enhancer/preview', // URL of preview
             'dialog' => array(
                 'contentUrl' => 'admin/ab_test/enhancer/popup',
                 'width' => 450,
@@ -52,7 +53,7 @@ return array(
             ),
         ),
     ),
-    /* Data catcher configuration sample
+    /* Data catcher configuration sample */
     'data_catchers' => array(
         'key' => array( // key must be defined
             'title' => 'title',
@@ -76,5 +77,4 @@ return array(
             ),
         ),
     ),
-    */
 );
