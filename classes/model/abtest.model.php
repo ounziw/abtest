@@ -15,6 +15,8 @@ class Model_Abtest extends \Nos\Orm\Model
         'abte_textb',
         'abte_inta',
         'abte_intb',
+        'abte_conversiona',
+        'abte_conversionb',
         'abte_created_at',
         'abte_updated_at',
     );

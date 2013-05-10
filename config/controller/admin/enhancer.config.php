@@ -16,20 +16,18 @@ return array(
             'view' => 'ab_test::enhancer/popup',
         ),
     ),
-    /*
     'preview' => array(
         'params' => array(
             'title' => function($enhancer_args) {
-                if (!empty($enhancer_args['form_id'])) {
-                    $form = \Nos\Form\Model_Form::find($enhancer_args['form_id']);
+                if (!empty($enhancer_args['abte_id'])) {
+                    $abtestdata = \ABTEST\Model_Abtest::find($enhancer_args['abte_id']);
                 }
-                if (!empty($form)) {
-                    return $form->form_name;
+                if (!empty($abtestdata->abte_title)) {
+                    return $abtestdata->abte_title;
                 } else {
-                    return __('Form');
+                    return __('abtest');
                 }
             },
         ),
     ),
-    */
 );

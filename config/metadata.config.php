@@ -53,7 +53,7 @@ return array(
             ),
         ),
     ),
-    /* Data catcher configuration sample */
+    /* Data catcher configuration sample
     'data_catchers' => array(
         'key' => array( // key must be defined
             'title' => 'title',
@@ -77,4 +77,5 @@ return array(
             ),
         ),
     ),
+    */
 );

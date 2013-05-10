@@ -9,3 +9,17 @@
         ?>
     </label>
 </p>
+<p style="margin-bottom: 0.5em;">
+<?= __('Link Page:') ?>
+</p>
+<div class="enhancer_confirmation_page_id">
+    <?= \Nos\Page\Renderer_Selector::renderer(array(
+        'input_name' => 'confirmation_page_id',
+        'selected' => array(
+            'id' => \Arr::get($enhancer_args, 'confirmation_page_id', null),
+        ),
+        'treeOptions' => array(
+            'context' => \Arr::get($enhancer_args, 'nosContext', \Nos\Tools_Context::defaultContext()),
+        ),
+    )); ?>
+</div>
