@@ -21,6 +21,8 @@ class Controller_Front extends Controller_Front_Application
 
     public function action_main($enhancer_args = array())
     {
+        $this->main_controller->disableCaching();
+
         $abte_id = $enhancer_args['abte_id'];
         $item = \ABTEST\Model_Abtest::find($abte_id);
 
