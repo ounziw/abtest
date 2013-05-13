@@ -21,8 +21,42 @@ return array(
         'abte_texta' => array(
             'title' => __('テキストA'),
         ),
+        'abte_numa' => array(
+            'title' => __('A: クリック数 / 表示数'),
+            'value' => function ($item) {
+                return $item->conversiona . '/' . $item->inta;
+            }
+        ),
+        'abte_percenta' => array(
+            'title' => __('A: クリック率'),
+            'value' => function ($item) {
+                if ($item->inta >= 1) {
+                    $ratio = 100 * $item->conversiona / $item->inta;
+                    return round($ratio,2) ;
+                } else {
+                    return 0;
+                }
+            }
+        ),
         'abte_textb' => array(
             'title' => __('テキストB'),
+        ),
+        'abte_numb' => array(
+            'title' => __('B: クリック数 / 表示数'),
+            'value' => function ($item) {
+                return $item->conversionb . '/' . $item->intb;
+            }
+        ),
+        'abte_percentb' => array(
+            'title' => __('B: クリック率'),
+            'value' => function ($item) {
+                if ($item->intb >= 1) {
+                    $ratio = 100 * $item->conversionb / $item->intb;
+                    return round($ratio,2) ;
+                } else {
+                    return 0;
+                }
+            }
         ),
     ),
     /*
