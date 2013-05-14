@@ -1,7 +1,7 @@
 <?php
 return array(
     'model' => 'ABTEST\Model_Abtest',
-    'thumbnails' => true,
+    //'thumbnails' => true,
     /*
     'appdesk' => array(
         'appdesk' => array(

@@ -19,14 +19,25 @@ return array(
     'preview' => array(
         'params' => array(
             'title' => function($enhancer_args) {
+                $output = '';
                 if (!empty($enhancer_args['abte_id'])) {
                     $abtestdata = \ABTEST\Model_Abtest::find($enhancer_args['abte_id']);
                 }
                 if (!empty($abtestdata->abte_title)) {
-                    return $abtestdata->abte_title;
-                } else {
-                    return __('abtest');
+                    $output .= $abtestdata->abte_title;
+                    $output .= '<br>';
                 }
+                if (!empty($abtestdata->medias->imga)) {
+                    $output .= '<img src="' . $abtestdata->medias->imga->get_public_path_resized(100, 100) . '">';
+                    $output .= $abtestdata->conversiona . '/' . $abtestdata->inta;
+                    $output .= '<br>';
+                }
+                if (!empty($abtestdata->medias->imgb)) {
+                    $output .= '<img src="' . $abtestdata->medias->imgb->get_public_path_resized(100, 100) . '">';
+                    $output .= $abtestdata->conversionb . '/' . $abtestdata->intb;
+                    $output .= '<br>';
+                }
+                return $output;
             },
         ),
     ),
