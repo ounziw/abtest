@@ -1,0 +1,19 @@
+A/B Test application for Novius OS
+===================================
+
+An application for Novius OS.
+
+This application picks a picture from the two pictures randomly, and counts clicks of each picture.
+If one picture is clicked more often than the other, it means this picture is better.
+
+
+
+Usage
+=====
+Put this application into your Novius OS's local/application folder.
+Log into Novius OS, and activate this application.
+
+
+License
+=======
+AGPL ver.3.0 or later
