@@ -17,6 +17,10 @@ return array(
         ),
     ),
     'preview' => array(
+        'view' => 'ab_test::enhancer/preview',
+    ),
+    /*
+    'preview' => array(
         'params' => array(
             'title' => function($enhancer_args) {
                 $output = '';
@@ -41,4 +45,5 @@ return array(
             },
         ),
     ),
+    */
 );

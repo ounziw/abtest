@@ -18,6 +18,35 @@ class Controller_Admin_Enhancer extends \Nos\Controller_Admin_Enhancer
         if (empty($args)) {
             $args = $_POST;
         }
-        parent::action_save($args);
+        $abtestdata = \ABTEST\Model_Abtest::find($args['abte_id']);
+        $params['title'] = $abtestdata->abte_title;
+        $params['imga'] = $abtestdata->medias->imga->get_public_path_resized(200, 200);
+        $params['imgb'] = $abtestdata->medias->imgb->get_public_path_resized(200, 200);
+        $params['conversiona'] = $abtestdata->conversiona;
+        $params['conversionb'] = $abtestdata->conversionb;
+        $params['inta'] = $abtestdata->inta;
+        $params['intb'] = $abtestdata->intb;
+        if ($abtestdata->inta) {
+            $ratio = 100 * $abtestdata->conversiona / $abtestdata->inta;
+            $params['ratioa'] = round($ratio,2);
+        }
+        else
+        {
+            $params['ratioa'] =0;
+        };
+        if ($abtestdata->intb) {
+            $ratio = 100 * $abtestdata->conversionb / $abtestdata->intb;
+            $params['ratiob'] = round($ratio,2);
+        }
+        else
+        {
+            $params['ratiob'] =0;
+        };
+
+        $body = array(
+            'config'  => $args,
+            'preview' => \View::forge($this->config['preview']['view'], $params)->render(),
+        );
+        \Response::json($body);
     }
 }
