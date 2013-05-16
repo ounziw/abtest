@@ -82,6 +82,9 @@ return array(
             'form' => array(
                 'title' => __('画像A'),
             ),
+            'validation' => array(
+                'required',
+            ),
         ),
         'abte_texta' => array(
             'label' => __('テキストA'),
@@ -94,6 +97,9 @@ return array(
             'renderer' => 'Nos\Media\Renderer_Media',
             'form' => array(
                 'title' => __('画像B'),
+            ),
+            'validation' => array(
+                'required',
             ),
         ),
         'abte_textb' => array(
