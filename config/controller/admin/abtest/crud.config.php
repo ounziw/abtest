@@ -1,4 +1,8 @@
 <?php
+
+Nos\I18n::current_dictionary('ab_test::common');
+
+
 return array(
     'controller_url'  => 'admin/ab_test/abtest/crud',
     'model' => 'ABTEST\Model_Abtest',
@@ -80,14 +84,14 @@ return array(
             'label' => '',
             'renderer' => 'Nos\Media\Renderer_Media',
             'form' => array(
-                'title' => __('画像A'),
+                'title' => __('Image') . __('A'),
             ),
             'validation' => array(
                 'required',
             ),
         ),
         'abte_texta' => array(
-            'label' => __('テキストA'),
+            'label' => __('Text') . __('A'),
             'form' => array(
                 'type' => 'text',
             ),
@@ -96,14 +100,14 @@ return array(
             'label' => '',
             'renderer' => 'Nos\Media\Renderer_Media',
             'form' => array(
-                'title' => __('画像B'),
+                'title' => __('Image') . __('B'),
             ),
             'validation' => array(
                 'required',
             ),
         ),
         'abte_textb' => array(
-            'label' => __('テキストB'),
+            'label' => __('Text') . __('B'),
             'form' => array(
                 'type' => 'text',
             ),
