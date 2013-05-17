@@ -1,4 +1,8 @@
 <?php
+
+Nos\I18n::current_dictionary('ab_test::common');
+
+
 return array(
     'controller' => 'abtest/crud',
     'data_mapping' => array(
@@ -19,16 +23,16 @@ return array(
             }
         ),
         'abte_texta' => array(
-            'title' => __('テキストA'),
+            'title' => __('Text') . __('A'),
         ),
         'abte_numa' => array(
-            'title' => __('A: クリック数 / 表示数'),
+            'title' => __('A') . __('Clicks / Views'),
             'value' => function ($item) {
                 return $item->conversiona . '/' . $item->inta;
             }
         ),
         'abte_percenta' => array(
-            'title' => __('A: クリック率'),
+            'title' => __('A') . __('conversion'),
             'value' => function ($item) {
                 if ($item->inta >= 1) {
                     $ratio = 100 * $item->conversiona / $item->inta;
@@ -39,16 +43,16 @@ return array(
             }
         ),
         'abte_textb' => array(
-            'title' => __('テキストB'),
+            'title' => __('Text') . __('B'),
         ),
         'abte_numb' => array(
-            'title' => __('B: クリック数 / 表示数'),
+            'title' => __('B') . __('Clicks / Views'),
             'value' => function ($item) {
                 return $item->conversionb . '/' . $item->intb;
             }
         ),
         'abte_percentb' => array(
-            'title' => __('B: クリック率'),
+            'title' => __('B') . __('conversion'),
             'value' => function ($item) {
                 if ($item->intb >= 1) {
                     $ratio = 100 * $item->conversionb / $item->intb;

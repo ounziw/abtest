@@ -8,15 +8,16 @@
  * @link http://www.novius-os.org
  */
 
-//Nos\I18n::current_dictionary('ab_test::common');
+Nos\I18n::current_dictionary('ab_test::common');
 
 ?>
 
 <div style="overflow: hidden">
     <?= $title;?>
-    <table>
-        <tr><td><img src="<?= $imga; ?>"></td><td><img src="<?= $imgb; ?>"></td></tr>
-        <tr><td><?= $conversiona;?> / <?= $inta;?> (<?= $ratioa;?>%)</td><td><?= $conversionb;?> / <?= $intb;?> (<?= $ratiob;?>%)</td></tr>
+    <table style="text-align: center">
+        <tr><td></td><td><img src="<?= $imga; ?>"></td><td><img src="<?= $imgb; ?>"></td></tr>
+        <tr><td><?= __('Clicks / Views');?></td><td><?= $conversiona;?> / <?= $inta;?></td><td><?= $conversionb;?> / <?= $intb;?></td></tr>
+        <tr><td><?= __('conversion');?></td><td><?= $ratioa;?>%</td><td><?= $ratiob;?>%</td></tr>
         <tr><td></td><td></td></tr>
     </table>
 </div>
