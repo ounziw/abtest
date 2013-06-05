@@ -22,19 +22,21 @@ class Controller_Front extends Controller_Front_Application
     public function action_main($enhancer_args = array())
     {
         $this->main_controller->disableCaching();
-
+        $abtest_config = \Config::load('ab_test::common/abtest', true);
         $abte_id = $enhancer_args['abte_id'];
         $item = \ABTEST\Model_Abtest::find($abte_id);
 
         // when link is clicked
         $page_id = $enhancer_args['confirmation_page_id'];
-        if (\Input::post('_go') == 'abtest' && !empty($page_id)) {
-            if (ctype_alpha(\Session::get('abtest'.$abte_id))) {
+        if (\Input::post('_go') == $abte_id && !empty($page_id)) {
+            if ($abtest_config['session'] && ctype_alpha(\Session::get('abtest'.$abte_id))) {
                 // add conversion count
                 $num = 'abte_conversion'.\Session::get('abtest'.$abte_id);
-                $item->$num++;
-                $item->save();
+            } else {
+                $num = 'abte_conversion'.\Input::post('abtest_id');
             }
+            $item->$num++;
+            $item->save();
             $page = \Nos\Page\Model_Page::find($page_id);
             if (!empty($page)) {
                 \Response::redirect($page->url());
@@ -46,7 +48,9 @@ class Controller_Front extends Controller_Front_Application
         $ab = array('a','b');
         $rand_key = array_rand($ab);
         $abdata = $ab[$rand_key];
-        \Session::set('abtest'.$abte_id, $abdata);
+        if ($abtest_config['session']) {
+            \Session::set('abtest'.$abte_id, $abdata);
+        }
 
         // add view count
         $abte_view = 'abte_int' . $abdata;
@@ -60,8 +64,8 @@ class Controller_Front extends Controller_Front_Application
         $thumbnail = $item->medias->{$img}->get_public_path_resized(400, 300);
 
         // link format
-        $format = '<form method="post"><input type="hidden" name="_go" value="abtest"><input type="image" src="%s" alt="%s"></form>';
-        $data = sprintf($format,$thumbnail,$textdata);
+        $format = '<form method="post"><input type="hidden" name="_go" value="%s"><input type="hidden" name="abtest_id" value="%s"><input type="image" src="%s" alt="%s"></form>';
+        $data = sprintf($format,e($abte_id), e($abdata),e($thumbnail),e($textdata));
         return $data ;
     }
 

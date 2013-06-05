@@ -5,6 +5,7 @@ Nos\I18n::current_dictionary('ab_test::common');
 
 return array(
     'controller' => 'abtest/crud',
+    'session' => false,
     'data_mapping' => array(
         'abte_title' => array(
             'title' => __('title'),
