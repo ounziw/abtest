@@ -7,11 +7,17 @@ This application picks a picture from the two pictures randomly, and counts clic
 If one picture is clicked more often than the other, it means this picture is better.
 
 
-
 Usage
 =====
 Put this application into your Novius OS's local/application folder.
 Log into Novius OS, and activate this application.
+
+
+Change Log
+==========
+master branch requires session for identifying users.
+In version 0.2, I'm planning to add an option to use $_POST instead of session.
+Since ver0.2 is under development, I recommend to use master branch.
 
 
 License
